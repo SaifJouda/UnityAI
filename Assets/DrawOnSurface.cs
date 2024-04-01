@@ -1,6 +1,7 @@
 using System.Collections;
 using System.IO;
 using UnityEngine;
+using UnityEditor;
 
 public class DrawOnSurface : MonoBehaviour {
 
@@ -8,11 +9,9 @@ public class DrawOnSurface : MonoBehaviour {
     public float BrushSize = 0.1f;
     public RenderTexture RTexture;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    public NumberProcessor numberProcessor;
+
+
 	// Update is called once per frame
 	void Update () {
 
@@ -54,6 +53,19 @@ public class DrawOnSurface : MonoBehaviour {
         var data = texture2D.EncodeToPNG();
         File.WriteAllBytes(Application.dataPath + "/savedImage.png", data);
 
+        AssetDatabase.Refresh();
 
+        numberProcessor.ExecuteModel();
+
+    }
+
+    public void ClearBoard()
+    {
+        // Loop through all children of the parent GameObject
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            // Destroy each child GameObject
+            Destroy(transform.GetChild(i).gameObject);
+        }
     }
 }
