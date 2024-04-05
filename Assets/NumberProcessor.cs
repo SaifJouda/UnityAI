@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class NumberProcessor : MonoBehaviour
 {
     [SerializeField] private ModelAsset modelAsset;
-    [SerializeField] private Texture2D inputTexture;
+    //[SerializeField] private Texture2D inputTexture;
     [SerializeField] private float[] results;
 
     
@@ -32,7 +32,7 @@ public class NumberProcessor : MonoBehaviour
         //ExecuteModel();
     }
 
-    public void ExecuteModel()
+    public void ExecuteModel(Texture2D inputTexture)
     {
         //if something is already running, dispose of it
         inputTensor?.Dispose();

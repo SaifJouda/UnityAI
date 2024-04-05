@@ -9,8 +9,16 @@ public class DrawOnSurface : MonoBehaviour {
     public float BrushSize = 0.1f;
     public RenderTexture RTexture;
 
+    public Texture2D drawableTexture;
     public NumberProcessor numberProcessor;
 
+
+    void Start() 
+    {
+        
+
+
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -37,7 +45,7 @@ public class DrawOnSurface : MonoBehaviour {
 
     private IEnumerator CoSave()
     {
-        //wait for rendering
+        /*//wait for rendering
         yield return new WaitForEndOfFrame();
         Debug.Log(Application.dataPath + "/savedImage.png");
 
@@ -53,10 +61,32 @@ public class DrawOnSurface : MonoBehaviour {
         var data = texture2D.EncodeToPNG();
         File.WriteAllBytes(Application.dataPath + "/savedImage.png", data);
 
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
 
         numberProcessor.ExecuteModel();
+        */
+        // Wait for rendering
+        yield return new WaitForEndOfFrame();
+        //Debug.Log(Application.dataPath + "/savedImage.png");
 
+        // Set active texture
+        RenderTexture.active = RTexture;
+
+        // Convert rendering texture to Texture2D
+        var texture2D = new Texture2D(RTexture.width, RTexture.height);
+        texture2D.ReadPixels(new Rect(0, 0, RTexture.width, RTexture.height), 0, 0);
+        texture2D.Apply();
+
+        // Wait for the texture to be updated
+        yield return null;
+
+        // Write data to file
+        //var data = texture2D.EncodeToPNG();
+        //File.WriteAllBytes(Application.dataPath + "/savedImage.png", data);
+
+        // AssetDatabase.Refresh(); // This line won't work in a build, it's for the editor
+
+        numberProcessor.ExecuteModel(texture2D);
     }
 
     public void ClearBoard()

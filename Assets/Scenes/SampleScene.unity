@@ -282,7 +282,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save
+  m_Text: Process
 --- !u!222 &793297609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 865295234}
   - component: {fileID: 865295237}
   - component: {fileID: 865295238}
+  - component: {fileID: 865295239}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -393,6 +394,7 @@ MonoBehaviour:
   Brush: {fileID: 2425173584052276937, guid: aab2a827d6175794f99a0614cae50258, type: 3}
   BrushSize: 0.5
   RTexture: {fileID: 8400000, guid: 1418bdf2cbcd3cb44bf8ac91fbe08f2e, type: 2}
+  drawableTexture: {fileID: 0}
   numberProcessor: {fileID: 1646974461}
 --- !u!64 &865295238
 MeshCollider:
@@ -416,6 +418,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &865295239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865295232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da0ccaae9e51234caa03b4974b3b67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674.91, y: -364.47}
+  m_AnchoredPosition: {x: -376, y: -37.369995}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983303626
@@ -864,7 +878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674.91, y: -428.1}
+  m_AnchoredPosition: {x: -376, y: -101}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1520248030
@@ -991,7 +1005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelAsset: {fileID: 5022602860645237092, guid: 0f5fcb88ae29f6b429aed299f15c458a, type: 3}
-  inputTexture: {fileID: 2800000, guid: 2a7e90a744d542142a63802a7a16a7e9, type: 3}
   results: []
   textObject: {fileID: 1833010875}
 --- !u!4 &1646974462
@@ -1124,8 +1137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -733.24, y: -35.8}
-  m_SizeDelta: {x: 327.7, y: 325.7}
+  m_AnchoredPosition: {x: -359.53403, y: 118.67}
+  m_SizeDelta: {x: 223.292, y: 325.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833010875
 MonoBehaviour:
@@ -1141,7 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
